@@ -1,0 +1,5 @@
+This repository contains a Haskell code example that showcases a common pitfall when implementing instances for the `Eq` and `Ord` type classes with the `Maybe` type. The provided code demonstrates inefficient implementations, and a more efficient solution is given in a separate file.  The inefficiency arises from unnecessary comparisons in the default cases. The solution demonstrates a more optimized approach.
+
+**Problem:** The default implementations of `==` and `compare` within the instances for `Eq` and `Ord` for `Maybe a` can be inefficient for complex types `a`.   This is because each call recursively traverses the underlying data structures to perform element-wise comparisons.
+
+**Solution:** Leverage the built-in `Data.Maybe` module's derived instances for `Eq` and `Ord`, which are often highly optimized.
